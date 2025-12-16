@@ -9,4 +9,13 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('health')
+  healthCheck(): { status: string; service: string; timestamp: string } {
+    return {
+      status: 'ok',
+      service: 'cid-ms-external-query',
+      timestamp: new Date().toISOString(),
+    };
+  }
 }
